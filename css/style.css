@@ -9,22 +9,68 @@ table {
   margin-left: auto;
   margin-right: auto;
 }
-td {
-  font-size: 50px;
-  height: 300px;
-  width: 300px;
-  margin: auto;
-  /*background-color: pink;*/
-}
+
 #redBox {
   background-color: red;
+}
+#redBox.lit-up {
+  box-shadow:
+    0 0 30px 10px rgba(255, 0, 0, 0.75),
+    inset 0px 0px 30px 10px rgba(255,255,255,0.40);
+  background-color: rgba(255,0,0,0.85);
 }
 #blueBox {
   background-color: blue;
 }
+#blueBox.lit-up {
+  box-shadow:
+    0 0 30px 10px rgba(255, 0, 255, 0.75),
+    inset 0px 0px 30px 10px rgba(255,255,255,0.40);
+  background-color: rgba(255, 0, 255, 0.85);
+}
 #yellowBox {
   background-color: yellow;
 }
+#yellowBox.lit-up {
+  box-shadow:
+    0 0 30px 10px rgba(255, 255, 0, 0.75),
+    inset 0px 0px 30px 10px rgba(255,255,255,0.40);
+  background-color: rgba(255, 255, 0, 0.85);
+}
 #pinkBox {
   background-color: pink;
+}
+#pinkBox.lit-up {
+  box-shadow:
+    0 0 30px 10px rgba(255, 192, 203, 0.75),
+    inset 0px 0px 30px 10px rgba(255,255,255,0.40);
+  background-color: rgba(255, 192, 203, 0.85);
+}
+
+
+
+
+.cat {
+  /*border: 1px solid black;*/
+  position: relative;
+
+  font-size: 50px;
+  height: 300px;
+  width: 300px;
+  margin: auto;
+
+  background-image: url("../images/alpha_cat_closed.png");
+  background-size: contain;
+}
+
+.lit-up {
+  z-index: 1;
+}
+
+.meow {
+  background-image: url("../images/alpha_cat_meow.png");
+}
+
+.scream {
+  background-image: url("../images/alpha_cat_scream.png");
 }
