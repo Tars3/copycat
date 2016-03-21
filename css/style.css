@@ -2,6 +2,9 @@ body {
   font-family: helvetica;
   text-align: center;
 }
+h1 {
+  font-size: 70px;
+}
 table {
   margin-left: auto;
   margin-right: auto;
@@ -13,15 +16,15 @@ td {
   margin: auto;
   /*background-color: pink;*/
 }
-#red {
+#redBox {
   background-color: red;
 }
-#blue {
+#blueBox {
   background-color: blue;
 }
-#yellow {
+#yellowBox {
   background-color: yellow;
 }
-#pink {
+#pinkBox {
   background-color: pink;
 }
