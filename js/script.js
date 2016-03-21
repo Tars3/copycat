@@ -1,21 +1,24 @@
 console.log("Testing, One, Two")
 
+var speed = 650;
+var round = 1; // doubles as sequence length!
+
 // create clickable dom elements for 4 buttons
 
-var red = document.getElementById('redBox')
-var blue = document.getElementById('blueBox')
-var yellow = document.getElementById('yellowBox')
-var pink = document.getElementById('pinkBox')
-var start = document.getElementById('start')
-var reset = document.getElementById('reset')
+var redEl    = document.getElementById('redBox')
+var blueEl   = document.getElementById('blueBox')
+var yellowEl = document.getElementById('yellowBox')
+var pinkEl   = document.getElementById('pinkBox')
+var startButton = document.getElementById('start')
+var resetButton = document.getElementById('reset')
 
 // set click handlers
-red.addEventListener("click", press)
-blue.addEventListener("click", press)
-yellow.addEventListener("click", press)
-pink.addEventListener("click", press)
-start.addEventListener("click", startGame)
-reset.addEventListener("click", resetGame)
+redEl.addEventListener("click", press)
+blueEl.addEventListener("click", press)
+yellowEl.addEventListener("click", press)
+pinkEl.addEventListener("click", press)
+startButton.addEventListener("click", startGame)
+resetButton.addEventListener("click", resetGame)
 
 // function for user button press
 function press() {
@@ -24,11 +27,23 @@ function press() {
 
 // start game
 function startGame() {
-  lightUpBox();
+  var boxEl = randomMove();
+  lightUpBox(boxEl);
 }
 
-function lightUpBox() {
+function lightUpBox(box) {
   console.log("lighting up box");
+  box.classList.add("lit-up");
+  box.classList.add("meow");
+
+  setTimeout(function() {
+    dimBox(box);
+  }, speed);
+}
+
+function dimBox(box) {
+  box.classList.remove("lit-up")
+  box.classList.remove("meow")
 }
 
 // reset game
@@ -41,13 +56,13 @@ function resetGame() {
 function randomMove(move) {
   var randomNumber = Math.random();
   if (randomNumber < .25) {
-    return red; //indicate selection
+    return redEl; //indicate selection
   } else if (randomNumber < .50) {
-    return blue;
+    return blueEl;
   } else if (randomNumber < .75) {
-    return yellow;
+    return yellowEl;
   } else {
-    return pink;
+    return pinkEl;
   }
 }
 
