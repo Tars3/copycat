@@ -3,11 +3,17 @@ body {
   text-align: center;
 }
 h1 {
-  font-size: 70px;
+  font-size: 55px;
+  letter-spacing: 40px;
 }
+
 table {
   margin-left: auto;
   margin-right: auto;
+}
+
+button {
+  font-size: 20px
 }
 
 #redBox {
@@ -54,9 +60,6 @@ table {
     inset 0px 0px 30px 10px rgba(255,255,255,0.40);
   background-color: rgba(255, 192, 203, 0.85);
 }
-
-
-
 
 .cat {
   /*border: 1px solid black;*/
