@@ -16,44 +16,44 @@ button {
   font-size: 20px
 }
 
-#redBox {
+#red {
   transition: 0.2s;
   background-color: red;
 }
-#redBox.lit-up {
+#red.lit-up {
   transition: 0.2s;
   box-shadow:
     0 0 30px 10px rgba(255, 0, 0, 0.75),
     inset 0px 0px 30px 10px rgba(255,255,255,0.40);
   background-color: rgba(255,0,0,0.85);
 }
-#blueBox {
+#blue {
   transition: 0.2s;
   background-color: blue;
 }
-#blueBox.lit-up {
+#blue.lit-up {
   transition: 0.2s;
   box-shadow:
     0 0 30px 10px rgba(0, 0, 255, 0.75),
     inset 0px 0px 30px 10px rgba(255,255,255,0.40);
   background-color: rgba(0, 0, 255, 0.85);
 }
-#yellowBox {
+#yellow {
   transition: 0.2s;
   background-color: yellow;
 }
-#yellowBox.lit-up {
+#yellow.lit-up {
   transition: 0.2s;
   box-shadow:
     0 0 30px 10px rgba(255, 255, 0, 0.75),
     inset 0px 0px 30px 10px rgba(255,255,255,0.40);
   background-color: rgba(255, 255, 0, 0.85);
 }
-#pinkBox {
+#pink {
   transition: 0.2s;
   background-color: pink;
 }
-#pinkBox.lit-up {
+#pink.lit-up {
   transition: 0.2s;
   box-shadow:
     0 0 30px 10px rgba(255, 192, 203, 0.75),

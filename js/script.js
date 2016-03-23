@@ -1,20 +1,25 @@
-console.log("Testing, One, Two")
-
+// console.log("Testing, One, Two")
 var speed = 650;
 var round = 1; // doubles as sequence length!
 var turn
 
 // create clickable dom elements for 4 buttons
-var redEl    = document.getElementById('redBox')
-var blueEl   = document.getElementById('blueBox')
-var yellowEl = document.getElementById('yellowBox')
-var pinkEl   = document.getElementById('pinkBox')
+var redEl    = document.getElementById('red')
+var blueEl   = document.getElementById('blue')
+var yellowEl = document.getElementById('yellow')
+var pinkEl   = document.getElementById('pink')
 var startButton = document.getElementById('start')
 var resetButton = document.getElementById('reset')
 
-round = 1
-//computerMove == array[totalRounds]
+// click handlers
+redEl.addEventListener("click", press)
+blueEl.addEventListener("click", press)
+yellowEl.addEventListener("click", press)
+pinkEl.addEventListener("click", press)
+startButton.addEventListener("click", startGame)
+resetButton.addEventListener("click", resetGame)
 
+//computerMove == array[totalRounds]
 var computerMove = []
 
 moves = ["red", "yellow", "blue", "pink"]
@@ -32,14 +37,6 @@ elements = {
 // elementToLightUp = elements[move];
 // getMoveFromElementId()
 
-// set click handlers
-redEl.addEventListener("click", press)
-blueEl.addEventListener("click", press)
-yellowEl.addEventListener("click", press)
-pinkEl.addEventListener("click", press)
-startButton.addEventListener("click", startGame)
-resetButton.addEventListener("click", resetGame)
-
 // start game
 function startGame() {
    var boxEl = randomMove();
@@ -48,20 +45,31 @@ function startGame() {
   console.log(computerMove)
 }
 
-function lightUpBox(box) {
-  console.log("lighting up box");
+// for loop for round numbers
+for (var i = 0; i >= round.length; i++) {
+  computerMove[i];
+  console.log(computerMove)
+}
+
+
+function lightUpSequence(sequence) {
+  sequence.forEach(function (box, i) {
+    setTimeout(function() {
+      console.log(box)
+      flashBox(box);
+    }, speed * i)
+  })
+}
+
+function flashBox(box) {
   box.classList.add("lit-up");
   box.classList.add("meow");
-
   setTimeout(function() {
-    dimBox(box);
+    box.classList.remove("lit-up")
+    box.classList.remove("meow")
   }, speed);
 }
 
-function dimBox(box) {
-  box.classList.remove("lit-up")
-  box.classList.remove("meow")
-}
 
 // function for user button press
 function press(box) {
