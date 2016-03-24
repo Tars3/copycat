@@ -79,6 +79,12 @@ button {
   background-size: contain;
 }
 
+#tears {
+  display: none;
+  top: 0px;
+  z-index: -1;
+}
+
 .lit-up {
   transition: 0.2s;
   z-index: 1;

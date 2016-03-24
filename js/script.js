@@ -72,8 +72,14 @@ function press(boxEl) {
     }
   }
   else{
-    alert("youre a loser");
+    //alert("youre a loser");
+    youLose();
   }
+}
+
+function youLose() {
+  $(".cat").hide();
+  $("#tears").fadeIn('400', 0.5);
 }
 
 //compare the user sequence and the correct sequence
