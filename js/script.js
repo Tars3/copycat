@@ -1,5 +1,5 @@
 // console.log("Testing, One, Two")
-var speed = 650;
+var speed = 300;
 var round = 1; // doubles as sequence length!
 var turn = 0;
 var computerMove = [];
@@ -52,9 +52,8 @@ function startGame() {
    var boxEl = randomMove();
   correctSeq.push(boxEl.id);
   lightSeq.push(boxEl)
-  console.log(boxEl);  // sub from computerMove
   lightUpSequence(lightSeq);
-  turn = turn + 1;
+  turn++;
 }
 
 // for loop for round numbers
@@ -68,7 +67,7 @@ function lightUpSequence(correctSeq) { //sub for sequence
     setTimeout(function() {
       console.log(box)
       flashBox(box);
-    }, speed * i)
+    }, 800 * i)
   })
 }
 // has to be called with a sequence
@@ -79,7 +78,7 @@ function lightUpSequence(correctSeq) { //sub for sequence
 // add to sequence
 function addSeq() {
   if(correctSeq.length !== round) {
-    correctSeq.push(randomMove());
+     startGame();
   }
 }
 
@@ -101,10 +100,25 @@ function press(boxEl) {
   console.log(boxEl);
   flashBox(document.getElementById(boxEl.target.id));
   turn++;
+  if (playerSeq.length == correctSeq.length) {
+    winRound();
+  }
 }
 
-if(playerSeq.join == correctSeq.join && playerSeq.length != 0) {
-  startGame();
+// winRound
+function winRound() {
+  if(playerSeq.join('') == correctSeq.join('')) {
+    // if(round ==10) {
+    //   you win!
+    // }
+    playerSeq.length = 0;
+    setTimeout(function() {
+      startGame();
+    }, 1000);
+  } else {
+    alert("you're a loser!");
+    resetGame();
+  }
 }
 
 function play () {
@@ -116,14 +130,6 @@ function play () {
     }
   }
   else {alert("DYSIODFSJSDL:KFJ:OSIDFJ YOU WIN!")}
-}
-
-function winRound() {
-
-}
-
-function winGame() {
-
 }
 
 // turn switch logic (no longer necessary)
@@ -146,14 +152,18 @@ function flashBox(box) {
 // reset game
 function resetGame() {
   console.log('one day this will reset the game.')
-  round = 0
+  round = 0;
+  correctSeq.length = 0;
+  playerSeq.length = 0;
+  lightSeq.length = 0;
 }
 
 
 // questionable code starts here!
 // user clicks corresponding button
 
-// if player clicks are less than sequence length for round computer waits.
+// if player clicks are less than sequence length for round computer
+// waits.
 
 // function checkWinner(playerMove, computerMove) {
 //   if (playerMove===computerMove) {
