@@ -1,5 +1,5 @@
 // console.log("Testing, One, Two")
-var speed = 300;
+var speed = 300; //300
 var round = 1; // doubles as sequence length!
 var turn = 0;
 var computerMove = [];
@@ -52,7 +52,7 @@ function lightUpSequence(correctSeq) { //sub for sequence
     setTimeout(function() {
       console.log(box)
       flashBox(box);
-    }, 800 * i)
+    }, 600 * i) //800
   })
 }
 
@@ -89,7 +89,7 @@ function compareArrays(plSeq, corrSeq) {
 function goToNextRound(){
     console.log("goToNextRound");
     if(round === 4){
-      alert("youve won 4 rounds");
+      alert("WINNING! 4 rounds WON!");
       resetGame();
     }
 
@@ -97,12 +97,14 @@ function goToNextRound(){
     playerSeq = [];
     setTimeout(function() {
        startGame();
-     }, 1000);
+     }, 800); //1000
 }
 
 function flashBox(box) {
   box.classList.add("lit-up");
   box.classList.add("meow");
+  // var audio = document.getElementById("audio");
+  // audio.play();
   setTimeout(function() {
     box.classList.remove("lit-up")
     box.classList.remove("meow")
