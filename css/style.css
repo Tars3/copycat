@@ -1,10 +1,15 @@
 body {
   font-family: helvetica;
   text-align: center;
+  background-image: url("../images/Space1080p.jpg");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 h1 {
   font-size: 55px;
   letter-spacing: 40px;
+  color: white;
 }
 
 table {
