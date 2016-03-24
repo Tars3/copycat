@@ -1,3 +1,25 @@
+function compareArrays(plSeq, corrSeq) {
+    for(var x=0; x< plSeq.length ; x ++){
+        if(plSeq[x] !== corrSeq[x]){
+          return false;
+        }
+    }
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // console.log("Testing, One, Two")
 var speed = 300;
 var round = 1; // doubles as sequence length!
@@ -53,14 +75,13 @@ function startGame() {
   correctSeq.push(boxEl.id);
   lightSeq.push(boxEl)
   lightUpSequence(lightSeq);
-  turn++;
 }
 
 // for loop for round numbers
-for (var i = 0; i >= round.length; i++) {
-  computerMove[i];
-  console.log(computerMove)
-}
+// for (var i = 0; i >= round.length; i++) {
+//   computerMove[i];
+//   console.log(computerMove)
+// }
 
 function lightUpSequence(correctSeq) { //sub for sequence
   correctSeq.forEach(function (box, i) {  //sub for sequence.forEach
@@ -76,61 +97,87 @@ function lightUpSequence(correctSeq) { //sub for sequence
 // lightUpSequence(seq)
 
 // add to sequence
-function addSeq() {
-  if(correctSeq.length !== round) {
-     startGame();
-  }
-}
+// function addSeq() {
+//   if(correctSeq.length !== round) {
+//      startGame();
+//   }
+// }
 
 // playerSeq
-function playerTurn() {
-  if(playerSeq == correctSeq && playerSeq.length == correctSeq) {
-    turn = turn +1
-  } else if (playerSeq == correctSeq && playerSeq.length != correctSeq) {
-    // wait?
-  } else {
-    alert("You LOSE, You get NOTHING!");
-    round = 0;
-  }
-}
+// function playerTurn() {
+//   if(playerSeq == correctSeq && playerSeq.length == correctSeq) {
+//     turn = turn +1
+//   } else if (playerSeq == correctSeq && playerSeq.length != correctSeq) {
+//     // wait?
+//   } else {
+//     alert("You LOSE, You get NOTHING!");
+//     round = 0;
+//   }
+// }
 
 // function for user button press
 function press(boxEl) {
   playerSeq.push(boxEl.target.id);
   console.log(boxEl);
   flashBox(document.getElementById(boxEl.target.id));
-  turn++;
-  if (playerSeq.length == correctSeq.length) {
-    winRound();
-  }
-}
 
-// winRound
-function winRound() {
-  if(playerSeq.join('') == correctSeq.join('')) {
-    // if(round ==10) {
-    //   you win!
-    // }
-    playerSeq.length = 0;
-    setTimeout(function() {
-      startGame();
-    }, 1000);
-  } else {
-    alert("you're a loser!");
-    resetGame();
-  }
-}
+  console.log("inside press");
+  console.log("player sequence: ", playerSeq);
+  console.log("correct sequence: ", correctSeq);
 
-function play () {
-  if(!win()) {
-    if(turn % 2 == 0) {
-      computerMove();
-    } else {
-      userMove();
+  if(compareArrays(playerSeq, correctSeq)){
+    if(playerSeq.length === correctSeq.length){
+      goToNextRound();
     }
   }
-  else {alert("DYSIODFSJSDL:KFJ:OSIDFJ YOU WIN!")}
+  else{
+    alert("youre a loser");
+  }
 }
+
+
+function goToNextRound(){
+    console.log("goToNextRound");
+    if(round === 4){
+      alert("youve won 4 rounds");
+      resetGame();
+    }
+
+    round++;
+    playerSeq = [];
+    setTimeout(function() {
+       startGame();
+     }, 1000);
+}
+
+
+
+// winRound
+// function winRound() {
+  // if(playerSeq.join('') == correctSeq.join('')) {
+    // if(round ==10) {
+      // you win!
+    // }
+    // playerSeq.length = 0;
+    // setTimeout(function() {
+      // startGame();
+    // }, 1000);
+  // } else {
+    // alert("you're a loser!");
+    // resetGame();
+  // }
+// }
+
+// function play () {
+//   if(!win()) {
+//     if(turn % 2 == 0) {
+//       computerMove();
+//     } else {
+//       userMove();
+//     }
+//   }
+//   else {alert("DYSIODFSJSDL:KFJ:OSIDFJ YOU WIN!")}
+// }
 
 // turn switch logic (no longer necessary)
 // var turn = 0;
@@ -153,9 +200,9 @@ function flashBox(box) {
 function resetGame() {
   console.log('one day this will reset the game.')
   round = 0;
-  correctSeq.length = 0;
-  playerSeq.length = 0;
-  lightSeq.length = 0;
+  correctSeq = [];
+  playerSeq = [];
+  lightSeq = [];
 }
 
 
