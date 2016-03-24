@@ -1,6 +1,6 @@
 // console.log("Testing, One, Two")
 var speed = 650;
-var round = 0; // doubles as sequence length!
+var round = 1; // doubles as sequence length!
 
 // create clickable dom elements for 4 buttons
 var redEl    = document.getElementById('red')
@@ -21,6 +21,7 @@ resetButton.addEventListener("click", resetGame)
 //computerMove == array[totalRounds]
 var computerMove = []
 var playerMove = []
+var correctSeq = []
 
 // moves = ["red", "yellow", "blue", "pink"]
 // elements = {
@@ -52,17 +53,41 @@ function lightUpSequence(sequence) {
     }, speed * i)
   })
 }
+// has to be called with a sequence
+// var seq = [blueEl, pinkEl, yellowEl]
+// undefined
+// lightUpSequence(seq)
 
-// function play () {
-//   if(!win()) {
-//     if(turn % 2 == 0) {
-//       computerMove();
-//     } else {
-//       userMove();
-//     }
-//   }
-//   else {alert("DYSIODFSJSDL:KFJ:OSIDFJ YOU WIN!")}
-// }
+// make sequence
+function makeSeq() {
+  if(correctSeq.length !== round) {
+    correctSeq.push(randomMove());
+  }
+}
+
+function play () {
+  if(!win()) {
+    if(turn % 2 == 0) {
+      computerMove();
+    } else {
+      userMove();
+    }
+  }
+  else {alert("DYSIODFSJSDL:KFJ:OSIDFJ YOU WIN!")}
+}
+
+function checkLose() {
+
+}
+
+function winRound() {
+
+}
+
+function winGame() {
+
+}
+
 // turn switch logic (no longer necessary)
 // var turn = 0;
 // if (turn % 2 == 0) {
