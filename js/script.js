@@ -72,15 +72,15 @@ function press(boxEl) {
     }
   }
   else{
-    //alert("youre a loser");
-    youLose();
+    alert("youre a loser");
+    // youLose();
   }
 }
 
-function youLose() {
-  $(".cat").hide();
-  $("#tears").fadeIn('400', 0.5);
-}
+// function youLose() {
+//   $(".cat").hide();
+//   $("#tears").fadeIn('400', 0.5);
+// }
 
 //compare the user sequence and the correct sequence
 function compareArrays(plSeq, corrSeq) {
@@ -95,7 +95,7 @@ function compareArrays(plSeq, corrSeq) {
 function goToNextRound(){
     console.log("goToNextRound");
     if(round === 4){
-      alert("WINNING! 4 rounds WON!");
+      alert("WINNING! You Won 4 Rounds!");
       resetGame();
     }
 
